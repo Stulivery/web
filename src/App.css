@@ -1,38 +1,49 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'TTfirsNeue';
+  src: url('../public/fonts/TTFirsNeueTrialMedium.ttf');
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.fontfamily{
+  font-family: 'TtfirsNeue';
+  line-height: 1;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+  100% {
+    transform: rotate(-6deg);
   }
 }
+@keyframes myAnim {
+	0%,
+	50%,
+	100% {
+		opacity: 1;
+	}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+	25%,
+	75% {
+		opacity: 0;
+	}
 }
-
-.App-link {
-  color: #61dafb;
+.blinkanimation {
+  animation: myAnim 4s ease 0s infinite normal forwards; /* Added 'infinite' here */
 }
+.rotateAnimation {
+  animation: rotateAnimation 3s ease-in-out infinite; /* Adjust duration as needed */
+}
+@keyframes myAnimbottom {
+	0% {
+		background-position: 50% 0%;
+	}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	100% {
+		background-position: 50% 100%;
+	}
+}
+.pan-bottom{
+  animation: myAnimbottom 2s ease 0s infinite 1 normal forwards;
 }
