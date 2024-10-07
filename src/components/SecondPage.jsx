@@ -6,6 +6,7 @@ import { Header } from "./addcomponent";
 import { Location } from "./animations/locationanimi";
 import Services from "./Sevices";
 import DisplayModay from "./modal/displaymodal";
+import { Button } from "./modal/Customcomponent";
 
 const SecondPage = () => {
   const [active, setActive] = useState('Home');
@@ -111,12 +112,13 @@ const SecondPage = () => {
                   </div>
                 </div>
                 <div className="mt-5 relative z-50">
-                  <button
-                    onClick={handleSubmit}
-                    className="bg-primaryColor text-white rounded-2xl text-xl px-5 py-2"
-                  >
-                    Join the Waitlist
-                  </button>
+                  <Button 
+                            onClick={handleSubmit} 
+                            text={'Join the Waitlist'}
+                            textcolor={'white'}
+                            bgcolor={'#FFC107'}
+
+                            />
                 </div>
               </div>
             </div>

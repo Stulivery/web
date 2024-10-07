@@ -46,13 +46,14 @@ export const Textinput=({onChange,label,type,value})=>{
     )
 }
 
-export const Button=({onClick})=>{
+export const Button=({onClick,bgcolor,textcolor,text})=>{
     return(
         <button
         onClick={onClick}
-        className="bg-secondaryColor w-full md:w-[25vw] mt-5 text-white rounded-2xl text-xl px-5 py-2"
+        style={{background:bgcolor,color:textcolor}}
+        className="w-full md:w-[25vw] mt-5 text-white rounded-2xl text-xl px-5 py-2 transition-opacity duration-300 ease-in-out active:opacity-75"
       >
-       Submit
+       {text}
       </button>
     )
 }

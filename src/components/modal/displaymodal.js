@@ -36,7 +36,13 @@ const DisplayModay = ({ setshowmodal }) => {
                         type={'email'}
                         />
                         <div>
-                            <Button onClick={handleSubmit} />
+                            <Button 
+                            onClick={handleSubmit} 
+                            text={'Submit'}
+                            textcolor={'white'}
+                            bgcolor={'#073945'}
+
+                            />
                         </div>
 
                         </div>
