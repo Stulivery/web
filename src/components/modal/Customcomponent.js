@@ -7,7 +7,7 @@ export const Textinput=({onChange,label,type,value})=>{
     <>
     <div className='mt-5'>
     <TextField 
-    className='w-full md:w-[25vw]' 
+    className='w-[60vw] md:w-[25vw]' 
     id="outlined-basic" 
     label={label} 
     type={type}
