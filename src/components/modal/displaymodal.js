@@ -17,7 +17,7 @@ const DisplayModay = ({ setshowmodal }) => {
         <>
             <div className="bg-yellow-100  opacity-70 absolute h-screen w-screen" />
             <div className="h-screen w-screeen flex justify-center relative">
-                <div className="h-[70vh] w-[75vw] top-[10vh] rounded-2xl md:w-[50vw] bg-iconbgyellow bg-contain bg-repeat flex flex-col bg-primaryColor absolute p-5">
+                <div className="h-[50vh] md:h-[70vh] w-[75vw] md:top-[10vh] top-[18vh] rounded-2xl md:w-[50vw] bg-iconbgyellow bg-contain bg-repeat flex flex-col bg-primaryColor absolute p-5">
                     <div className="w-full justify-end flex">
                         <button onClick={()=>setshowmodal(false)}><FontAwesomeIcon size="xl" icon={faTimesCircle} /></button>
 
