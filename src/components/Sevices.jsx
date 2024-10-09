@@ -7,13 +7,16 @@ import shoppingman from '../images/shoppingMan.png'
 import studentpreneur from '../images/enterpreneur.png'
 import { Location } from "./animations/locationanimi";
 import { useState } from "react";
+import { Preloader } from "./animations/preloader";
 
 const Services = () => {
     const listarray = ['DELIVERY', 'ORDERING', 'SHOPPING', 'STUDENTPRENEUR']
     const comparray=[<Delivery/>, <Ordering/>,<Shopping/>,<Studententpreneur/>]
     const [currentindex,setcurrentindex]=useState(0)
+    const [loader,setloader]=useState(true)
     const handleactive=(value)=>{
         setcurrentindex(value)
+        setloader(true)
 
     }
     return (
@@ -30,8 +33,8 @@ const Services = () => {
                     <div className="fontfamily md:text-2xl text-xl font-bold text-center mt-5 text-secondaryColor">Earn Money with Stulivery</div>
                     <div className="flex md:flex-row flex-col items-start w-full flex-1 mt-5">
                         <div className="md:w-1/2 flex justify-start  md:justify-center w-full p-5">
-                        {currentindex===3 &&<img src={studentpreneur} className="md:w-2/3 h-64 md:h-72 w-full object-contain" />}
-                        {currentindex===2 &&<img src={shoppingman} className="md:w-2/3 h-64 md:h-72 w-full object-contain" />}
+                        {currentindex===3 &&<img src={studentpreneur} className="md:w-2/3 h-64 md:h-72 w-full object-contain" onLoad={() => setloader(false)}  />}
+                        {currentindex===2 &&<img src={shoppingman} className="md:w-2/3 h-64 md:h-72 w-full object-contain"  />}
                         {currentindex===1 && <img src={studentimage} className="md:w-2/3 h-64 md:h-72 object-contain" />}
                         {currentindex===0 &&<img src={bicycle} className="md:w-2/3 h-64 md:h-72 object-contain" />}
                         </div>

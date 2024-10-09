@@ -8,6 +8,10 @@ import Services from "./Sevices";
 import DisplayModay from "./modal/displaymodal";
 import { Button } from "./modal/Customcomponent";
 import Addonword from "./addonword";
+import { AvailableComp } from "./availablecomp";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowCircleDown } from "@fortawesome/free-solid-svg-icons";
+import { primarycolor, primarycolortwo } from "./color";
 
 const SecondPage = () => {
   const [active, setActive] = useState('Home');
@@ -98,6 +102,25 @@ const SecondPage = () => {
             </div>
             <Addonword
             setshowmodal={setshowmodal}
+            />
+            <div className="absolute z-50 bottom-5 right-3 md:bottom-10 ">
+              <button onClick={()=>setActive('getapppage')} className="bg-primaryColor flex items-center justify-center rounded-full w-16 h-16 py-4 ">
+               <FontAwesomeIcon icon={faArrowCircleDown} size="xl" color={primarycolortwo} />
+              </button>
+            </div> 
+          </div>
+          
+          
+        </div>
+        <div
+          className={`transition-transform duration-700 absolute w-full h-full ${
+            active === 'getapppage' ?'translate-y-0' : 'translate-y-full'
+          }`}
+        >
+          {/* Services Page Content */}
+          <div>
+            <AvailableComp
+            setActive={(value)=>setActive(value)}
             />
           </div>
         </div>
