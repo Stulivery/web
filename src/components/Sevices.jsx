@@ -2,6 +2,9 @@ import { faDollar, faTruck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { primarycolor } from "./color";
 import studentimage from '../images/student.png'
+import bicycle from '../images/bicycle.png'
+import shoppingman from '../images/shoppingMan.png'
+import studentpreneur from '../images/enterpreneur.png'
 import { Location } from "./animations/locationanimi";
 import { useState } from "react";
 
@@ -24,10 +27,13 @@ const Services = () => {
                     <Location />
                 </div>
                 <div className="relatve z-50 w-full h-full overflow-y-scroll hide-scrollbar  bg-yellow-50 mt-20 mb-10 rounded-2xl shadow-xl flex flex-col shadow-black">
-                    <div className="fontfamily text-2xl font-bold text-center mt-5 text-secondaryColor">Earn Money with Stulivery</div>
+                    <div className="fontfamily md:text-2xl text-xl font-bold text-center mt-5 text-secondaryColor">Earn Money with Stulivery</div>
                     <div className="flex md:flex-row flex-col items-start w-full flex-1 mt-5">
                         <div className="md:w-1/2 flex justify-start  md:justify-center w-full p-5">
-                            <img src={studentimage} className="md:w-2/3 w-full object-contain h-auto" />
+                        {currentindex===3 &&<img src={studentpreneur} className="md:w-2/3 h-64 md:h-72 w-full object-contain" />}
+                        {currentindex===2 &&<img src={shoppingman} className="md:w-2/3 h-64 md:h-72 w-full object-contain" />}
+                        {currentindex===1 && <img src={studentimage} className="md:w-2/3 h-64 md:h-72 object-contain" />}
+                        {currentindex===0 &&<img src={bicycle} className="md:w-2/3 h-64 md:h-72 object-contain" />}
                         </div>
                         <div className="md:w-1/2 flex flex-col justify-start md:justify-center w-full p-5">
                             <div className="flex  gap-2 overflow-scroll hide-scrollbar py-1">
@@ -113,7 +119,7 @@ const Ordering=()=>{
         <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
         <div>Get a trusted Stulivery courier to deliver for you</div>
     </div>
-    <div className="italic mt-3 text-lg">Turn your daily walks into cash.</div>
+    <div className="italic mt-3 text-lg"></div>
 </div>
 
 </div>
@@ -186,7 +192,7 @@ const Studententpreneur=()=>{
         <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
         <div>Scale your business without sacrificing study time</div>
     </div>
-    <div className="italic mt-3 text-lg">Turn your daily walks into cash.</div>
+    <div className="italic mt-3 text-lg leading-5">While go from student to student, class to class when they can come to you</div>
 </div>
 
 </div>
