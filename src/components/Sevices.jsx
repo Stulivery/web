@@ -119,7 +119,7 @@ const Ordering=()=>{
         <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
         <div>Get a trusted Stulivery courier to deliver for you</div>
     </div>
-    <div className="italic mt-3 text-lg"></div>
+    <div className="italic mt-3 text-lg">Order Smart, Live Easy</div>
 </div>
 
 </div>
