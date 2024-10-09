@@ -1,55 +1,199 @@
 import { faDollar, faTruck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { primarycolor } from "./color";
+import studentimage from '../images/student.png'
+import { Location } from "./animations/locationanimi";
+import { useState } from "react";
 
 const Services = () => {
+    const listarray = ['DELIVERY', 'ORDERING', 'SHOPPING', 'STUDENTPRENEUR']
+    const comparray=[<Delivery/>, <Ordering/>,<Shopping/>,<Studententpreneur/>]
+    const [currentindex,setcurrentindex]=useState(0)
+    const handleactive=(value)=>{
+        setcurrentindex(value)
+
+    }
     return (
         <>
-            <div className="w-full items-center flex-col flex justify-center">
-                <div className="bg-secondaryColor rounded-2xl w-[50vw] h-24 shadow-sm shadow-black flex justify-center items-center">
-                    <div className="text-primaryColor text-4xl">Services</div>
+            <div className="bg-iconbgyellow bg-yellow-100 h-screen w-screen absolute bg-repeat bg-contain" />
+            <div className="bg-primarybackground bg-no-repeat bg-contain flex flex-col items-center w-screen relative overflow-x-hidden h-screen px-5 fontfamily">
+                <div className="absolute top-5 left-0">
+                    <Location />
                 </div>
-                <div className="text-white text-sm flex justify-around mt-5 flex-wrap gap-5">
-                    <div className="md:w-1/3 bg-secondaryColor rounded-2xl border border-primaryColor shadow-md shadow-black p-5 w-full relative">
-                        <div className="text-primaryColor text-2xl">Delivery Errands:</div>
-                        <div>
-                            These are services where the main task is delivering items from one
-                            location to another, saving time for students.
+                <div className="absolute right-0 top-5">
+                    <Location />
+                </div>
+                <div className="relatve z-50 w-full h-full overflow-y-scroll hide-scrollbar  bg-yellow-50 mt-20 mb-10 rounded-2xl shadow-xl flex flex-col shadow-black">
+                    <div className="fontfamily text-2xl font-bold text-center mt-5 text-secondaryColor">Earn Money with Stulivery</div>
+                    <div className="flex md:flex-row flex-col items-start w-full flex-1 mt-5">
+                        <div className="md:w-1/2 flex justify-start  md:justify-center w-full p-5">
+                            <img src={studentimage} className="md:w-2/3 w-full object-contain h-auto" />
                         </div>
-                        <ul className="list-disc pl-5">
-                            <li>Food and Beverage Delivery</li>
-                            <li>Grocery and Essentials Delivery</li>
-                            <li>Laundry Pickup and Drop-off</li>
-                            <li>Document and Package Delivery</li>
-                            <li>Event Supplies Delivery</li>
-                            <li>Library Book Delivery</li>
-                            <li>Tech and Equipment Delivery</li>
-                            <li>Campus Errands</li>
-                        </ul>
-                        <div className="absolute z-50 bottom-5 right-5">
-                        <FontAwesomeIcon color={primarycolor} icon={faTruck} size="3x" />
+                        <div className="md:w-1/2 flex flex-col justify-start md:justify-center w-full p-5">
+                            <div className="flex  gap-2 overflow-scroll hide-scrollbar py-1">
+                                {listarray.map((item,index) => (
+                                <button onClick={()=>handleactive(index)} className={`${currentindex===index?'bg-primaryColor':'border border-secondaryColor'}  px-2 py-2 rounded-2xl`}>
+                                    {item}
+                                </button>
+                            ))}
+
+                            </div>
+                            <div>
+                                {comparray[currentindex]}
+                            </div>
+
                         </div>
-                        
-                    </div>
-                    <div className="md:w-1/3 bg-secondaryColor rounded-2xl border border-primaryColor shadow-md shadow-black p-5 w-full relative">
-                        <div className="text-primaryColor text-2xl"> Earning Money:</div>
-                        <div>These services can provide students with opportunities to
-                            earn money by performing simple tasks or errands for others.</div>
-                        <ul className="list-disc pl-5">
-                            <li>Meal Plan Management</li>
-                            <li>Courier Services for Part-Time Jobs or Internships</li>
-                            <li>Event Supplies Delivery</li>
-                            <li>Tech and Equipment Delivery</li>
-                            <li>Campus Errands</li>
-                        </ul>
-                        <div className="absolute z-50 bottom-5 right-5">
-                        <FontAwesomeIcon color={primarycolor} icon={faDollar} size="3x" />
-                        </div>
+
                     </div>
                 </div>
             </div>
+
         </>
     )
 }
+const Delivery=()=>{
+    return(
+        <div className="flex flex-col">
+<div className="text-secondaryColor font-semibold mt-5 mb-5">Earn Easy, Deliver Smart</div>
+<div className="flex-1  overflow-y-scroll hide-scrollbar">
+<div className="text-lg leading-5">Stulivery connects students with flexible delivery opportunities, allowing you to monetize your daily commute. Become a Stulivery courier and:</div>
+<div className="text-sm mt-5">
+    <div className="flex gap-3 items-center">
+        <div>
+        <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
+        </div>
+       
+        <div>Deliver packages and food within your school and surrounding areas</div>
+    </div>
+    <div className="flex gap-3 items-center mt-3">
+        <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
+        <div>Choose orders that fit your schedule and route</div>
+    </div>
+    <div className="flex gap-3 items-center mt-3">
+        <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
+        <div>Get paid for each successful delivery</div>
+    </div>
+    <div className="flex gap-3 items-center mt-3">
+        <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
+        <div>Enhance your campus experience with extra income</div>
+    </div>
+    <div className="italic mt-3 text-lg">Turn your daily walks into cash.</div>
+</div>
 
+</div>
+
+
+        </div>
+    )
+
+}
+const Ordering=()=>{
+    return(
+        <div className="flex flex-col">
+<div className="text-secondaryColor font-semibold mt-5 mb-5">Convenience at Your Fingertips</div>
+<div className="flex-1  overflow-y-scroll hide-scrollbar">
+<div className="text-lg leading-5">Stulivery makes life easier with two convenient services:</div>
+<div className="text-lg font-bold">Delivery Assistance</div>
+<div className="text-sm mt-5">
+    <div className="flex gap-3 items-center">
+        <div>
+        <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
+        </div>
+        <div>Need to submit an assignment, but running late?</div>
+    </div>
+    <div className="flex gap-3 items-center mt-3">
+        <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
+        <div>Stuck in class, but need to deliver documents?</div>
+    </div>
+    <div className="flex gap-3 items-center mt-3">
+        <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
+        <div>Got two places to be at the same time?</div>
+    </div>
+    <div className="flex gap-3 items-center mt-3">
+        <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
+        <div>Get a trusted Stulivery courier to deliver for you</div>
+    </div>
+    <div className="italic mt-3 text-lg">Turn your daily walks into cash.</div>
+</div>
+
+</div>
+
+
+        </div>
+    )
+
+}
+const Shopping=()=>{
+    return(
+        <div className="flex flex-col">
+<div className="text-secondaryColor font-semibold mt-5">Shopping Errands</div>
+<div className="flex-1  overflow-y-scroll hide-scrollbar">
+<div className="text-sm mt-5">
+    <div className="flex gap-3 items-center">
+        <div>
+        <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
+        </div>
+        <div>No time to shop for essentials?</div>
+    </div>
+    <div className="flex gap-3 items-center mt-3">
+        <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
+        <div>Stuck in class, but need to deliver documents?</div>
+    </div>
+    <div className="flex gap-3 items-center mt-3">
+        <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
+        <div>Want groceries or gifts delivered to your doorstep?</div>
+    </div>
+    <div className="flex gap-3 items-center mt-3">
+        <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
+        <div>Send a Stulivery courier to shop for you and deliver to your doorstep</div>
+    </div>
+    <div className="italic mt-3 text-lg">Get more done in less time.</div>
+</div>
+
+</div>
+
+
+        </div>
+    )
+
+}
+const Studententpreneur=()=>{
+    return(
+        <div className="flex flex-col">
+<div className="text-secondaryColor font-semibold mt-5 mb-5">Deliver with Ease, Learn with Focus</div>
+<div className="flex-1  overflow-y-scroll hide-scrollbar">
+<div className="text-lg leading-5">Stulivery offers a hassle-free delivery solution for student entrepreneurs, connecting you with a network of reliable student/nearby people readily available to handle your small-scale business delivery needs. With Stulivery, you can:</div>
+<div className="text-sm mt-5">
+    <div className="flex gap-3 items-center">
+        <div>
+        <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
+        </div>
+        <div>Outsource delivery of your products (confectionery, snacks, merchandise, and more)</div>
+    </div>
+    <div className="flex gap-3 items-center mt-3">
+        <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
+        <div>Reach customers across campus and beyond</div>
+    </div>
+    <div className="flex gap-3 items-center mt-3">
+        <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
+        <div>Focus on your studies while we handle logistics</div>
+    </div>
+    <div className="flex gap-3 items-center mt-3">
+        <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
+        <div>Track orders and manage your business on-the-go</div>
+    </div>
+    <div className="flex gap-3 items-center mt-3">
+        <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
+        <div>Scale your business without sacrificing study time</div>
+    </div>
+    <div className="italic mt-3 text-lg">Turn your daily walks into cash.</div>
+</div>
+
+</div>
+
+
+        </div>
+    )
+
+}
 export default Services;

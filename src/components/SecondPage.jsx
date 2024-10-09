@@ -108,7 +108,7 @@ const SecondPage = () => {
           }`}
         >
           {/* Services Page Content */}
-          <div className="bg-secondaryColor pan-bottom bg-contain bg-iconbg bg-repeat  flex flex-col items-center w-screen relative overflow-x-hidden h-screen px-5 py-20 fontfamily">
+          <div>
             <Services/>
           </div>
         </div>
