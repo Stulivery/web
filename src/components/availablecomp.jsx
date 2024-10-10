@@ -25,8 +25,8 @@ export const AvailableComp=({setActive})=>{
                 <div className="absolute right-0 top-5">
                     <Location />
                 </div>
-                <div className="text-secondaryColor md:text-2xl text-xl relative z-50 mt-20">Request in seconds... get the app</div>
-                 <div className="flex justify-center text-center w-screen ">
+                {/* <div className="text-secondaryColor md:text-2xl text-xl relative z-50 ">Request in seconds... get the app</div> */}
+                 <div className="flex justify-center text-center w-screen mt-20 ">
                  <div className="overflow-scroll flex items-center py-2  gap-3  hide-scrollbar mt-3 px-3">
                     {Listarray.map((item,index)=>(
 
@@ -68,6 +68,15 @@ const RealTime=()=>{
                 <img className="md:w-64 w-64 h-auto object-contain" src={realtime} />
 
             </div>
+        </div>
+        </>
+    )
+}
+const CyptoPayment=()=>{
+    return(
+        <>
+        <div>
+
         </div>
         </>
     )
