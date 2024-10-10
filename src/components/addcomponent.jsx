@@ -37,7 +37,7 @@ export const Header = ({ light, active, setactive, setSlideUp, slideUp }) => {
           About
         </button>
         <button
-
+         onClick={() => handleNavigate('Contact')}
           className={`border rounded-2xl px-1 py-1 text-sm ${
             active === 'Contact' ? 'bg-secondaryColor text-white' :  'border-secondaryColor' }`
           }
