@@ -101,7 +101,6 @@ const Ordering=()=>{
         <div className="flex flex-col">
 <div className="text-secondaryColor font-semibold mt-5 mb-5">Convenience at Your Fingertips</div>
 <div className="flex-1  overflow-y-scroll hide-scrollbar">
-<div className="text-lg leading-5">Stulivery makes life easier with two convenient services:</div>
 <div className="text-lg font-bold">Delivery Assistance</div>
 <div className="text-sm mt-5">
     <div className="flex gap-3 items-center">
@@ -195,7 +194,7 @@ const Studententpreneur=()=>{
         <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
         <div>Scale your business without sacrificing study time</div>
     </div>
-    <div className="italic mt-3 text-lg leading-5">While go from student to student, class to class when they can come to you</div>
+    <div className="italic mt-3 text-lg leading-5">Why go from student to student, class to class when they can come to you</div>
 </div>
 
 </div>
