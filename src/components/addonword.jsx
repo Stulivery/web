@@ -12,8 +12,8 @@ const Addonword = ({ setshowmodal }) => {
 
     const fullTextArray = [
         "From Class to Cash\n earn while you learn\n with Stulivery",
-        "Get paid to do\n what you already do",
         "Big boys don't stress!",
+        "Get paid to do\n what you already do",
         "Student hustle simplified"
     ];
 
@@ -82,12 +82,12 @@ const Addonword = ({ setshowmodal }) => {
                         <span className="font-bold">Stulivery</span>
                     </>
                 )}
-                {currentTextIndex === 1 && (
+                {currentTextIndex === 2 && (
                     <>
                         <span className="font-bold">-move around campus</span>
                     </>
                 )}
-                {currentTextIndex === 2 && (
+                {currentTextIndex === 1 && (
                     <>
                         <span> Let others do the shopping and bring your groceries in minutes.</span>
                     </>
