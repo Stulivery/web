@@ -42,7 +42,7 @@ export const AvailableComp=({setActive})=>{
                  </div>
              
                 
-                <div className="relatve z-50 p-5 h-full overflow-y-scroll hide-scrollbar bg-secondaryColor mt-3 md:w-[25vh] w-full rounded-2xl shadow-xl flex flex-col shadow-black">
+                <div className="relatve z-50 p-5 h-full overflow-y-scroll hide-scrollbar bg-secondaryColor mt-3 md:w-[25vw] w-full rounded-2xl shadow-xl flex flex-col shadow-black">
                     {compArray[currentindex]}
 
                 </div>
@@ -62,7 +62,7 @@ export const AvailableComp=({setActive})=>{
 const RealTime=()=>{
     return(
         <>
-        <div className="p-5">
+        <div>
             <div className="text-white fontfamily md:text-lg flex justify-center text-sm">Available for IOS and Android</div>
             <div className="flex justify-center mt-3">
                 <img className="md:w-64 w-64 h-auto object-contain" src={realtime} />
