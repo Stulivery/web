@@ -5,10 +5,12 @@ import { primarycolortwo } from "./color"
 import { useState } from "react"
 import realtime from "../images/orderlocation.png"
 import p2p from '../images/p2p.png'
+import cryto from '../images/crypto.png'
+import delivery from '../images/deliverymap.png'
 
 export const AvailableComp=({setActive})=>{
     const Listarray=['Real-time order tracking','Crypto payment processing','Flexible delivery scheduling','P2P Chat feature']
-    const compArray=[<RealTime/>]
+    const compArray=[<RealTime/>,<CyptoPayment/>,<Delivery/>,<P2P/>]
     const [currentindex,setcurrentindex]=useState(0)
     const handleactive=(value)=>{
         setcurrentindex(value)
@@ -25,8 +27,8 @@ export const AvailableComp=({setActive})=>{
                 <div className="absolute right-0 top-5">
                     <Location />
                 </div>
-                {/* <div className="text-secondaryColor md:text-2xl text-xl relative z-50 ">Request in seconds... get the app</div> */}
-                 <div className="flex justify-center text-center w-screen mt-20 ">
+               <div className="text-secondaryColor md:text-2xl text-lg relative z-50 mt-20 text-nowrap">Will be available on Android & iOS devices</div> 
+                 <div className="flex justify-center text-center w-screen ">
                  <div className="overflow-scroll flex items-center py-2  gap-3  hide-scrollbar mt-3 px-3">
                     {Listarray.map((item,index)=>(
 
@@ -44,8 +46,10 @@ export const AvailableComp=({setActive})=>{
                 
                 <div className="relatve z-50 p-5 h-full overflow-y-scroll hide-scrollbar bg-secondaryColor mt-3 md:w-[25vw] w-full rounded-2xl shadow-xl flex flex-col shadow-black">
                     {compArray[currentindex]}
+                   
 
                 </div>
+               
                 <div className="absolute z-50 bottom-5 right-3 md:bottom-10 ">
               <button onClick={()=>setActive('Home')} className="bg-primaryColor flex items-center justify-center rounded-full w-16 h-16 py-4 ">
                <FontAwesomeIcon icon={faArrowCircleUp} size="xl" color={primarycolortwo} />
@@ -76,6 +80,39 @@ const CyptoPayment=()=>{
     return(
         <>
         <div>
+        <div className="text-white fontfamily md:text-lg flex justify-center text-sm">Available for IOS and Android</div>
+            <div className="flex justify-center mt-3">
+                <img className="md:w-64 w-64 h-auto object-contain" src={cryto} />
+
+            </div>
+
+        </div>
+        </>
+    )
+}
+const Delivery=()=>{
+    return(
+        <>
+        <div>
+        <div className="text-white fontfamily md:text-lg flex justify-center text-sm">Available for IOS and Android</div>
+            <div className="flex justify-center mt-3">
+                <img className="md:w-64 w-64 h-auto object-contain" src={delivery} />
+
+            </div>
+
+        </div>
+        </>
+    )
+}
+const P2P=()=>{
+    return(
+        <>
+        <div>
+        <div className="text-white fontfamily md:text-lg flex justify-center text-sm">Available for IOS and Android</div>
+            <div className="flex justify-center mt-3">
+                <img className="md:w-64 w-64 h-auto object-contain" src={p2p} />
+
+            </div>
 
         </div>
         </>

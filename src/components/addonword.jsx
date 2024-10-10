@@ -18,7 +18,7 @@ const Addonword = ({ setshowmodal }) => {
     ];
 
     const typingSpeed = 100; // Typing speed in ms
-    const changeInterval = 15000; // 15 seconds for text change
+    const changeInterval = 5000; // 5 seconds for text change
 
     useEffect(() => {
         let index = 0;
@@ -48,7 +48,10 @@ const Addonword = ({ setshowmodal }) => {
             return () => clearTimeout(changeTextTimeout); // Cleanup timeout
         }
     }, [isTypingComplete]); // Run effect when typing is complete
+    const handlegoto=(value)=>{
+        setCurrentTextIndex(value)
 
+    }
     const handleSubmit = () => {
         setshowmodal(true);
         console.log('ok');
@@ -99,7 +102,7 @@ const Addonword = ({ setshowmodal }) => {
     </div>
     <div className="flex justify-center w-full gap-1 mt-2">
         {fullTextArray.map((item,index)=>(
-             <div className={`${currentTextIndex===index?'bg-white':'border border-white'} w-2 h-2 rounded-full`}></div>
+             <div onClick={()=>handlegoto(index)} className={`${currentTextIndex===index?'bg-white':'border border-white'} w-2 h-2 rounded-full cursor-pointer`}></div>
         ))
 
         }
