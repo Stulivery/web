@@ -3,9 +3,12 @@ import { Location } from "./animations/locationanimi"
 import { faArrowCircleUp } from "@fortawesome/free-solid-svg-icons"
 import { primarycolortwo } from "./color"
 import { useState } from "react"
+import realtime from "../images/orderlocation.png"
+import p2p from '../images/p2p.png'
 
 export const AvailableComp=({setActive})=>{
     const Listarray=['Real-time order tracking','Crypto payment processing','Flexible delivery scheduling','P2P Chat feature']
+    const compArray=[<RealTime/>]
     const [currentindex,setcurrentindex]=useState(0)
     const handleactive=(value)=>{
         setcurrentindex(value)
@@ -23,11 +26,11 @@ export const AvailableComp=({setActive})=>{
                     <Location />
                 </div>
                 <div className="text-secondaryColor md:text-2xl text-xl relative z-50 mt-20">Request in seconds... get the app</div>
-             
-                <div className="overflow-scroll flex items-center py-2 w-screen gap-3 justify-center hide-scrollbar mt-3">
+                 <div className="flex justify-center text-center w-screen ">
+                 <div className="overflow-scroll flex items-center py-2  gap-3  hide-scrollbar mt-3 px-3">
                     {Listarray.map((item,index)=>(
 
-                            <button onClick={()=>handleactive(index)} className={`${currentindex===index?'bg-primaryColor':'border border-secondaryColor'}  px-2 py-2 rounded-2xl `}>
+                            <button onClick={()=>handleactive(index)} className={`${currentindex===index?'bg-primaryColor':'border border-secondaryColor'}  px-2 py-2 rounded-2xl text-nowrap `}>
                                 {item} 
                             </button>
                             
@@ -35,8 +38,12 @@ export const AvailableComp=({setActive})=>{
 
                     }
                 </div>
+
+                 </div>
+             
                 
-                <div className="relatve z-50 w-full h-full overflow-y-scroll hide-scrollbar bg-secondaryColor mt-3 mb-10 rounded-2xl shadow-xl flex flex-col shadow-black">
+                <div className="relatve z-50 p-5 h-full overflow-y-scroll hide-scrollbar bg-secondaryColor mt-3 md:w-[25vh] w-full rounded-2xl shadow-xl flex flex-col shadow-black">
+                    {compArray[currentindex]}
 
                 </div>
                 <div className="absolute z-50 bottom-5 right-3 md:bottom-10 ">
@@ -46,12 +53,22 @@ export const AvailableComp=({setActive})=>{
             </div> 
 
                 </div>
-                
-      
-
-
+            
         
         </>
     )
 
+}
+const RealTime=()=>{
+    return(
+        <>
+        <div className="p-5">
+            <div className="text-white fontfamily md:text-lg flex justify-center text-sm">Available for IOS and Android</div>
+            <div className="flex justify-center mt-3">
+                <img className="md:w-64 w-64 h-auto object-contain" src={realtime} />
+
+            </div>
+        </div>
+        </>
+    )
 }
