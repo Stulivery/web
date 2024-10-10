@@ -145,10 +145,6 @@ const Shopping=()=>{
     </div>
     <div className="flex gap-3 items-center mt-3">
         <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
-        <div>Stuck in class, but need to deliver documents?</div>
-    </div>
-    <div className="flex gap-3 items-center mt-3">
-        <div className="rounded-full w-4 h-4 bg-primaryColor"></div>
         <div>Want groceries or gifts delivered to your doorstep?</div>
     </div>
     <div className="flex gap-3 items-center mt-3">
