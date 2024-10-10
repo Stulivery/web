@@ -32,9 +32,9 @@ export const AvailableComp=({setActive})=>{
                  <div className="overflow-scroll flex items-center py-2  gap-3  hide-scrollbar mt-3 px-3">
                     {Listarray.map((item,index)=>(
 
-                            <button onClick={()=>handleactive(index)} className={`${currentindex===index?'bg-primaryColor':'border border-secondaryColor'}  px-2 py-2 rounded-2xl text-nowrap `}>
+                            <div onClick={()=>handleactive(index)} className={`${currentindex===index?'bg-primaryColor':'border border-secondaryColor'}  px-2 py-2 rounded-2xl text-nowrap cursor-pointer`}>
                                 {item} 
-                            </button>
+                            </div>
                             
                     ))
 
