@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export const Textinput=({onChange,label,type,value})=>{
    
     return(
@@ -56,4 +57,24 @@ export const Button=({onClick,bgcolor,textcolor,text})=>{
        {text}
       </button>
     )
+}
+
+export const NavigationBution=({setActive,pagename,icondirection})=>{
+  return(
+    <div className="absolute z-50 bottom-5 right-3 md:bottom-10 "> 
+      <div className='relative w-20 h-20 flex justify-center items-center'>
+      <div className='w-20 h-20 rounded-full bg-primaryColor opacity-50 absolute'/>
+      <button onClick={()=>setActive(pagename)} className="bg-primaryColor flex items-center justify-center rounded-full w-12 h-12 py-4 relative z-50 ">
+      {icondirection}
+    </button>
+      
+     
+
+      </div>
+    
+
+
+ 
+  </div> 
+  )
 }

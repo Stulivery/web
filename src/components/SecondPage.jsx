@@ -6,7 +6,7 @@ import { Header,Homemobile, Menulist } from "./addcomponent";
 import { Location } from "./animations/locationanimi";
 import Services from "./Sevices";
 import DisplayModay from "./modal/displaymodal";
-import { Button } from "./modal/Customcomponent";
+import { Button, NavigationBution } from "./modal/Customcomponent";
 import Addonword from "./addonword";
 import { AvailableComp } from "./availablecomp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,7 +20,33 @@ const SecondPage = () => {
   const [moveCar, setMoveCar] = useState(false);
   const [showmodal,setshowmodal]=useState(false)
   const [showmenu,setshowmenu]=useState(false)
- 
+  const [touchStartY, setTouchStartY] = useState(0);
+  const [touchEndY, setTouchEndY] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [touchEndX, setTouchEndX] = useState(0);
+
+  const minSwipeDistance = 50; // Minimum vertical distance for a swipe to be considered
+
+  const handleTouchStart = (e) => {
+    setTouchStartY(e.targetTouches[0].clientY);
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEndY(e.targetTouches[0].clientY);
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    const deltaY = touchStartY - touchEndY;
+    const deltaX = Math.abs(touchStartX - touchEndX); // Absolute value of horizontal movement
+
+    // Check if vertical swipe distance is more than the minSwipeDistance and horizontal movement is minimal
+    if (deltaY > minSwipeDistance && deltaX < minSwipeDistance / 2) {
+      console.log("Swipe Up detected");
+     setActive('getapppage')
+    }
+  }
 
   // Start the car movement after the component mounts
   useEffect(() => {
@@ -30,7 +56,9 @@ const SecondPage = () => {
 
     return () => clearTimeout(timer);
   }, []);
+  
 
+ 
 
   
 
@@ -85,8 +113,16 @@ const SecondPage = () => {
           }`}
         >
           {/* Home Page Content */}
-          <div className="bg-iconbgyellow bg-yellow-100 h-screen w-screen absolute bg-repeat bg-contain"/>
-          <div className="bg-primarybackground bg-no-repeat bg-contain flex flex-col items-center w-screen relative overflow-x-hidden h-screen px-5 fontfamily pb-20">
+          <div 
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          className="bg-iconbgyellow bg-yellow-100 h-screen w-screen absolute bg-repeat bg-contain"/>
+          <div 
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          className="bg-primarybackground bg-no-repeat bg-contain flex flex-col items-center w-screen relative overflow-x-hidden h-screen px-5 fontfamily pb-20">
            
             <img
               src={Scooter}
@@ -104,11 +140,11 @@ const SecondPage = () => {
             <Addonword
             setshowmodal={setshowmodal}
             />
-            <div className="absolute z-50 bottom-5 right-3 md:bottom-10 ">
-              <button onClick={()=>setActive('getapppage')} className="bg-primaryColor flex items-center justify-center rounded-full w-16 h-16 py-4 ">
-               <FontAwesomeIcon icon={faArrowCircleDown} size="xl" color={primarycolortwo} />
-              </button>
-            </div> 
+           <NavigationBution 
+           icondirection={<FontAwesomeIcon icon={faArrowCircleDown} size="xl" color={primarycolortwo} />}
+           pagename={'getapppage'}
+           setActive={(value)=>setActive(value)}
+           />
           </div>
           
           

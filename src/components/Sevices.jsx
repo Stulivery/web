@@ -4,16 +4,25 @@ import { primarycolor } from "./color";
 import studentimage from '../images/student.png'
 import bicycle from '../images/bicycle.png'
 import shoppingman from '../images/shoppingMan.png'
-import studentpreneur from '../images/enterpreneur.png'
+import studentpreneur from '../images/enterpreneur.jpg'
 import { Location } from "./animations/locationanimi";
-import { useState } from "react";
-import { Preloader } from "./animations/preloader";
+import { useState,useEffect } from "react";
+import { Preloader, PreloaderCustom } from "./animations/preloader";
 
 const Services = () => {
     const listarray = ['DELIVERY', 'ORDERING', 'SHOPPING', 'STUDENTPRENEUR']
     const comparray=[<Delivery/>, <Ordering/>,<Shopping/>,<Studententpreneur/>]
     const [currentindex,setcurrentindex]=useState(0)
     const [loader,setloader]=useState(true)
+    const [showpreloader,setshowpreloader]=useState(true)
+    useEffect(() => {
+        // Delay the preloader for 3 seconds (3000ms)
+        const preloaderTimeout = setTimeout(() => {
+            setshowpreloader(false);
+        }, 5000);
+
+        return () => clearTimeout(preloaderTimeout); // Cleanup the timeout when the component unmounts
+    }, []);
     const handleactive=(value)=>{
         setcurrentindex(value)
         setloader(true)
@@ -22,14 +31,24 @@ const Services = () => {
     return (
         <>
             <div className="bg-iconbgyellow bg-yellow-100 h-screen w-screen absolute bg-repeat bg-contain" />
-            <div className="bg-primarybackground bg-no-repeat bg-contain flex flex-col items-center w-screen relative overflow-x-hidden h-screen px-5 fontfamily">
+            {showpreloader &&
+                <div className="bg-primarybackground bg-no-repeat bg-contain flex flex-col items-center w-screen relative overflow-x-hidden h-screen px-5 fontfamily ">
+                    <div className="relatve z-50 w-full h-full overflow-y-scroll hide-scrollbar items-center justify-center  bg-yellow-50 mt-20 mb-10 rounded-2xl shadow-xl flex flex-col shadow-black">
+                    <PreloaderCustom/>
+
+                    </div>
+                  
+                </div>
+            }
+
+           <div className="bg-primarybackground bg-no-repeat bg-contain flex flex-col items-center w-screen relative overflow-x-hidden h-screen px-5 fontfamily">
                 <div className="absolute top-5 left-0">
                     <Location />
                 </div>
                 <div className="absolute right-0 top-5">
                     <Location />
                 </div>
-                <div className="relatve z-50 w-full h-full overflow-y-scroll hide-scrollbar  bg-yellow-50 mt-20 mb-10 rounded-2xl shadow-xl flex flex-col shadow-black">
+                {!showpreloader &&<div className="relatve z-50 w-full h-full overflow-y-scroll hide-scrollbar  bg-yellow-50 mt-20 mb-10 rounded-2xl shadow-xl flex flex-col shadow-black">
                     <div className="fontfamily md:text-2xl text-xl font-bold text-center mt-5 text-secondaryColor">Earn Money with Stulivery</div>
                     <div className="flex md:flex-row flex-col items-start w-full flex-1 mt-5">
                         <div className="md:w-1/2 flex justify-start  md:justify-center w-full p-5">
@@ -54,7 +73,7 @@ const Services = () => {
                         </div>
 
                     </div>
-                </div>
+                </div>}
             </div>
 
         </>

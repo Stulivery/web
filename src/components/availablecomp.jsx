@@ -7,19 +7,56 @@ import realtime from "../images/orderlocation.png"
 import p2p from '../images/p2p.png'
 import cryto from '../images/crypto.png'
 import delivery from '../images/deliverymap.png'
+import { NavigationBution } from "./modal/Customcomponent"
 
 export const AvailableComp=({setActive})=>{
     const Listarray=['Real-time order tracking','Crypto payment processing','Flexible delivery scheduling','P2P Chat feature']
     const compArray=[<RealTime/>,<CyptoPayment/>,<Delivery/>,<P2P/>]
     const [currentindex,setcurrentindex]=useState(0)
+    const [touchStartY, setTouchStartY] = useState(0);
+  const [touchEndY, setTouchEndY] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [touchEndX, setTouchEndX] = useState(0);
+
+  const minSwipeDistance = 50; // Minimum vertical distance for a swipe to be considered
+
+  const handleTouchStart = (e) => {
+    setTouchStartY(e.targetTouches[0].clientY);
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEndY(e.targetTouches[0].clientY);
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    const deltaY = touchEndY - touchStartY; // This time, we're looking for a downward swipe (endY > startY)
+    const deltaX = Math.abs(touchStartX - touchEndX); // Absolute value of horizontal movement
+
+    // Check if vertical swipe distance is more than the minSwipeDistance and horizontal movement is minimal
+    if (deltaY > minSwipeDistance && deltaX < minSwipeDistance / 2) {
+      console.log("Swipe Down detected");
+     setActive('Home')
+    }
+  };
+
     const handleactive=(value)=>{
         setcurrentindex(value)
 
     }
     return(
         <>
-        <div className="bg-iconbgyellow bg-yellow-100 h-screen w-screen absolute bg-repeat bg-contain" />
-            <div className="bg-primarybackground bg-no-repeat bg-contain flex flex-col items-center w-screen relative overflow-x-hidden h-screen px-5 fontfamily">
+        <div className="bg-iconbgyellow bg-yellow-100 h-screen w-screen absolute bg-repeat bg-contain" 
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        />
+            <div 
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            className="bg-primarybackground bg-no-repeat bg-contain flex flex-col items-center w-screen relative overflow-x-hidden h-screen px-5 fontfamily">
                 <div className="absolute top-5 left-0">
                     <Location />
                     
@@ -49,12 +86,12 @@ export const AvailableComp=({setActive})=>{
                    
 
                 </div>
-               
-                <div className="absolute z-50 bottom-5 right-3 md:bottom-10 ">
-              <button onClick={()=>setActive('Home')} className="bg-primaryColor flex items-center justify-center rounded-full w-16 h-16 py-4 ">
-               <FontAwesomeIcon icon={faArrowCircleUp} size="xl" color={primarycolortwo} />
-              </button>
-            </div> 
+            <NavigationBution 
+           icondirection={<FontAwesomeIcon icon={faArrowCircleUp} size="xl" color={primarycolortwo} />}
+           pagename={'Home'}
+           setActive={setActive}
+           />
+            
 
                 </div>
             
