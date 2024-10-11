@@ -5,7 +5,7 @@ import { primarycolortwo } from "./color"
 import { useState } from "react"
 import realtime from "../images/orderlocation.png"
 import p2p from '../images/p2p.png'
-import cryto from '../images/crypto.png'
+import cryto from '../images/cypto.png'
 import delivery from '../images/deliverymap.png'
 import { NavigationBution } from "./modal/Customcomponent"
 
@@ -13,12 +13,12 @@ export const AvailableComp=({setActive})=>{
     const Listarray=['Real-time order tracking','Crypto payment processing','Flexible delivery scheduling','P2P Chat feature']
     const compArray=[<RealTime/>,<CyptoPayment/>,<Delivery/>,<P2P/>]
     const [currentindex,setcurrentindex]=useState(0)
-    const [touchStartY, setTouchStartY] = useState(0);
+  const [touchStartY, setTouchStartY] = useState(0);
   const [touchEndY, setTouchEndY] = useState(0);
   const [touchStartX, setTouchStartX] = useState(0);
   const [touchEndX, setTouchEndX] = useState(0);
 
-  const minSwipeDistance = 200; // Minimum vertical distance for a swipe to be considered
+  const minSwipeDistance = 50; // Minimum vertical distance for a swipe to be considered
 
   const handleTouchStart = (e) => {
     setTouchStartY(e.targetTouches[0].clientY);
@@ -31,13 +31,13 @@ export const AvailableComp=({setActive})=>{
   };
 
   const handleTouchEnd = () => {
-    const deltaY = touchEndY - touchStartY; // This time, we're looking for a downward swipe (endY > startY)
+    const deltaY = touchEndY - touchStartY; // Swipe down if endY > startY
     const deltaX = Math.abs(touchStartX - touchEndX); // Absolute value of horizontal movement
 
-    // Check if vertical swipe distance is more than the minSwipeDistance and horizontal movement is minimal
-    if (deltaY > minSwipeDistance && deltaX < minSwipeDistance / 2) {
-      console.log("Swipe Down detected");
-     setActive('Home')
+    // Check if the swipe is valid (mostly vertical) and that we're at the top of the scroll
+    if (window.scrollY === 0 && deltaY > minSwipeDistance && deltaX < minSwipeDistance / 2) {
+      console.log("Swipe Down detected at top position");
+      setActive('Home')
     }
   };
 
