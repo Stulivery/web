@@ -142,7 +142,7 @@ const SecondPage = () => {
             />
            <NavigationBution 
            icondirection={<FontAwesomeIcon icon={faArrowCircleDown} size="xl" color={primarycolortwo} />}
-           pagename={'getappage'}
+           pagename={'getapppage'}
            setActive={(value)=>setActive(value)}
            />
           </div>
