@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleDown } from "@fortawesome/free-solid-svg-icons";
 import { primarycolor, primarycolortwo } from "./color";
 import About from "./About";
+import Contact from "./Contact";
 
 const SecondPage = () => {
   const [active, setActive] = useState('Home');
@@ -181,6 +182,16 @@ const SecondPage = () => {
           {/* Services Page Content */}
           <div>
             <About/>
+          </div>
+        </div>
+        <div
+          className={`transition-transform duration-700 absolute w-full h-full ${
+            active === 'Contact' ?'translate-y-0' : 'translate-y-full'
+          }`}
+        >
+          {/* Services Page Content */}
+          <div>
+            <Contact/>
           </div>
         </div>
       </div>

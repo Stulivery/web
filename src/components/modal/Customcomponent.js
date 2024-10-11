@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-export const Textinput=({onChange,label,type,value})=>{
+export const Textinput=({onChange,label,type,value,multiline,rows})=>{
    
     return(
     <>
@@ -15,6 +15,8 @@ export const Textinput=({onChange,label,type,value})=>{
     value={value}
     variant="outlined"
     onChange={(e)=>onChange(e)}
+    multiline={multiline}
+    rows={rows}
 
       sx={{
         '& .MuiOutlinedInput-root': {
