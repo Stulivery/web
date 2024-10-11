@@ -18,7 +18,7 @@ export const AvailableComp=({setActive})=>{
   const [touchStartX, setTouchStartX] = useState(0);
   const [touchEndX, setTouchEndX] = useState(0);
 
-  const minSwipeDistance = 50; // Minimum vertical distance for a swipe to be considered
+  const minSwipeDistance = 200; // Minimum vertical distance for a swipe to be considered
 
   const handleTouchStart = (e) => {
     setTouchStartY(e.targetTouches[0].clientY);
