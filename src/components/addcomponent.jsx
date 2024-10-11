@@ -118,6 +118,7 @@ export const Menulist = ({ light, active, setactive, setSlideUp, slideUp, setsho
           <FontAwesomeIcon color={active==='About'?primarycolor:primarycolortwo} icon={faInfoCircle}/>About
         </div>
         <div 
+         onClick={() => handleNavigate('Contact')}
         className={`${active==='Contact'?'bg-secondaryColor text-primaryColor':'bg-yellow-300'} py-2 rounded-2xl  flex justify-center w-full gap-2 items-center mt-3`}>
         <FontAwesomeIcon color={active==='Contact'?primarycolor:primarycolortwo} icon={faUser}/>Contact
         </div>
