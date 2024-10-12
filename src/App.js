@@ -9,7 +9,7 @@ function App() {
     <Router >
       <Routes>
          <Route exact path='/' element={<Home/>} />
-       <Route exact path='/started' element={<SecondPage/>} />
+       {/* <Route exact path='/started' element={<SecondPage/>} /> */}
         {/* <Route exact path='/register' element={<Register/>} />
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute> } />  */} 
       </Routes>

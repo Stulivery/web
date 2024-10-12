@@ -28,11 +28,11 @@ const Home = () => {
       return () => clearTimeout(scaleTimer);
     }
   }, [slideUp]);
-  const navigate=useNavigate()
-  const handlenavigation=()=>{
-    navigate('/started')
+  // const navigate=useNavigate()
+  // const handlenavigation=()=>{
+  //   navigate('/started')
 
-  }
+  // }
   useEffect(() => {
       const scaleTimer = setTimeout(() => {
         handlenavigation()
