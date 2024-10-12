@@ -1,19 +1,58 @@
 import { useState } from "react"
 import { Button, Textinput } from "./modal/Customcomponent"
 import { primarycolor, primarycolortwo } from "./color"
+import { LottieAnimation, PreloaderCustom } from "./animations/preloader"
+import { SubmitContactus } from "./datafetcher/datafetcher"
 
 const Contact = () => {
     const [name, setname] = useState('')
     const [email, setemail] = useState('')
     const [message, setmessage] = useState('')
+    const [errorMsg,setErrorMsg]=useState('')
+    const [showSuccess,setshowSuccess]=useState(false)
+    const [loader,setLoader]=useState(false)
+    const showSubmitfunc=()=>{
+        setshowSuccess(true)
+        setTimeout(() => {
+        setshowSuccess(false)
+            
+        }, 3000);
+    }
     const handlesubmit = () => {
-        console.log('ok')
+        if(!name){
+            setErrorMsg('Please enter your name')
+            return
+        }
+        if(!email){
+            setErrorMsg('Please enter your email')
+            return
+
+        }
+        SubmitContactus(setname,setemail,setmessage,name, email, message, setLoader, setErrorMsg,showSubmitfunc)
+    
     }
     return (
         <>
+        {loader&&
+                    <>
+                    <div className="h-full w-full opacity-70 bg-primaryColor absolute z-50"/>
+                    <div className="flex justify-center items-center w-full h-full absolute z-50">
+                    <div className="p-3 bg-white rounded-2xl"><PreloaderCustom/></div>
+                    </div>
+                    </>
+                    }
+               {showSuccess&&
+                    <>
+                    <div className="h-full w-full opacity-70 bg-primaryColor absolute z-50"/>
+                    <div className="flex justify-center items-center w-full h-full absolute z-50">
+                    <LottieAnimation/>
+                    </div>
+                    </>
+                    }
             <div className="bg-iconbgyellow bg-yellow-100 h-screen w-screen absolute bg-repeat bg-contain" />
             <div className="bg-primarybackground bg-no-repeat bg-contain flex flex-col items-center w-screen relative overflow-x-hidden h-screen px-5 fontfamily ">
-                <div className="relatve z-50 w-full h-full overflow-y-scroll hide-scrollbar  justify-between  bg-yellow-50 mt-20 mb-10 rounded-2xl shadow-xl flex flex-wrap flex-row py-5 shadow-black">
+                <div className="relatve z-40 w-full h-full overflow-y-scroll hide-scrollbar  justify-between  bg-yellow-50 mt-20 mb-10 rounded-2xl shadow-xl flex flex-wrap flex-row  shadow-black">
+                    
                     <div className="md:w-1/2 w-full">
                         <div className="w-full text-xl md:px-10 px-5 mt-5">Contact us</div>
                         <div className="w-full flex-col items-center gap-3 flex-wrap">
@@ -34,7 +73,7 @@ const Contact = () => {
 
                                     </div>
                                     <div className="md:w-20"/>
-                                    <div className="md:w-full w-[80vw]">
+                                    <div className="md:w-full w-[80vw] mt-5 md:mt-0">
                                         <div className="font-bold">Feedback and Suggestions</div>
                                         <div className="text-sm">
                                         We value your feedback and are
@@ -63,14 +102,17 @@ const Contact = () => {
                     </div>
                        
                         <div className="w-full flex-col items-center gap-3 flex-wrap">
+                        <div className="text-sm text-center italic">{errorMsg}</div>
                             <div className="flex flex-wrap gap-3 justify-center">
                                 <Textinput
                                     label={'Name'}
                                     onChange={(e) => setname(e.target.value)}
+                                    value={name}
                                 />
                                 <Textinput
                                     label={'Email'}
                                     onChange={(e) => setemail(e.target.value)}
+                                    value={email}
                                 />
                             </div>
                             <div className="flex justify-center mt-3">
@@ -78,6 +120,7 @@ const Contact = () => {
                                     onChange={(e) => setmessage(e.target.value)}
                                     placeholder="Message"
                                     className="md:w-[25vw] w-[60vw] h-24 bg-yellow-100 px-2 outline-none border border-primaryColor py-2"
+                                    value={message}
                                 ></textarea>
                             </div>
                             <div className="  flex flex-col items-center  justify-center">
