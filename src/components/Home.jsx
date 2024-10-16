@@ -30,7 +30,7 @@ const Home = () => {
   }, [slideUp]);
   const navigate=useNavigate()
   const handlenavigation=()=>{
-    // navigate('/started')
+    navigate('/started')
 
   }
   useEffect(() => {
